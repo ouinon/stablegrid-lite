@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 /**
  * Adds a 'ui-scrollfix' class to the element when the page scrolls past it's position.
@@ -6,7 +6,7 @@
  *   Takes 300 (absolute) or -300 or +300 (relative to detected)
  */
 angular.module('affixalllApp').directive('affixall', ['$window', function ($window) {
-  'use strict';
+
 
   function getWindowScrollTop() {
     if (angular.isDefined($window.pageYOffset)) {
