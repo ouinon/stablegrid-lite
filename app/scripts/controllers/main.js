@@ -8,13 +8,8 @@
  * Controller of the affixalllApp
  */
 angular.module('affixalllApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl',['$scope', function ($scope) {
 
-  	// alert('io');
+    $scope.basicAr = [];
 
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  }]);

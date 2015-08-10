@@ -1,5 +1,5 @@
-$LT0:#FFFCF6;
-$DK0:#000000;
+$c_0:#000000;
+$c_1:#FFFCF6;
 
 $c_A:#009a66;
 $c_B:#005689;
@@ -18,11 +18,9 @@ $btnHt:5;
 $btnHtSwitchWd:$wdB;
 $btnHtB:7;
 
-@import 'mixins.scss';
-
+@import '__mixins.scss';
+@import '__color.scss';
 @import '_reset.scss';
-@import '_color.scss';
-@import '_properties.scss';
 
 html{
   font-size: 10px;
@@ -30,11 +28,12 @@ html{
 body{
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: $LT9;
+  background-color: $c_09 ;
 }
 
 p{
   font-size: 1.5rem;
+  line-height: 2rem;
   margin-bottom: 2rem;
 }
 
@@ -93,11 +92,11 @@ p{
   border-spacing: 0;
   box-sizing:border-box;
   margin-bottom: 3rem;
-  &.Flr{
+  &.FlR{
     float: right;
     width: auto;
   }
-  &.Fll{
+  &.FlL{
     float: left;
     width: auto;
   }
@@ -157,12 +156,31 @@ p{
   vertical-align: top;
   &.Line{
     padding-bottom:2rem;
-    border-bottom: 1px solid $DK0;
+    border-bottom: 1px solid $c_0;
   }
 }
 
 // Buttons
 .btn{
+
+  @include c_buttonrules($c_A,$c_0,$c_1,$c_A12);
+
+  &.C_A,.C_A_ &{
+    @include c_buttonrules($c_A,$c_0,$c_1,$c_A12);
+  }
+  &.C_B,.C_B_ &{
+    @include c_buttonrules($c_B,$c_1,$c_0,$c_B12);
+  }
+  &.C_C,.C_C_ &{
+    @include c_buttonrules($c_C,$c_0,$c_1,$c_C12);
+  }
+  &.C_1,.C_1_ &{
+    @include c_buttonrules($c_1,$c_0,$c_1,$c_08);
+  }
+  &.C_0,.C_0_ &{
+    @include c_buttonrules($c_0,$c_1,$c_0,$c_08);
+  }
+
   border-collapse: collapse;
   border-radius:0.2rem;
   border:0;
@@ -222,7 +240,22 @@ p{
       }
     }
   }
+  &.Clear,.Clear_ &{
+    background-color: transparent !important;
+    border-radius:0 !important;
+    &.Icn,.Icn_ &{
+      padding-right: 2rem;
+    }
+    label{
+      padding: 0;
+    }
+    .icn{
+      width: 2rem !important;
+      background: transparent !important;
+    }
+  }
 }
+
 // Icons
 .icn{
   height: inherit;
@@ -289,6 +322,8 @@ p{
   }
 }
 
+
+
 // Inputs
 .o-input{
   overflow:hidden;
@@ -296,6 +331,9 @@ p{
   border-radius: 0.2rem;
   &.Icn{
     .icn{
+      color: rgba(0,0,0,0);
+      @include grad_h($c_1);
+      
       position: absolute;
       top: 0;
       right: 0;
@@ -308,6 +346,7 @@ p{
     }
   }
   &:after{
+    background-color: $c_08;
     display: block;
     width: 100%;
     height: 0px;
@@ -319,6 +358,7 @@ p{
     transition: height 100ms,background 100ms;
   }
   &:hover:after{
+    background-color: $c_07;
     height: 2px;
   }
   &.focus:hover:after,
@@ -326,6 +366,8 @@ p{
     height: 4px;
   }
   input{
+    background-color: $c_1;
+
     height: #{$btnHt}rem;
     line-height: #{$btnHt}rem;
     width: 100%;
@@ -335,8 +377,52 @@ p{
     padding:0 1rem;
     position: relative;
     z-index: 7;
+    &[disabled],&[disabled]:hover{
+      background-color: $c_08-5;
+    }
+  }
+  &.focus{
+    &.Invalid-:hover:after,
+    &.Invalid-:after{
+      background-color: $c_A;
+    }
+    &:hover:after,
+    &:after{
+      background-color: $c_08;
+    }
   }
 }
 
+.o-table{
+    border:1px solid $c_0;
+  .btn{
+    background-color: rgba(0,0,0,0);
+  }
+  table{
+      color: $c_0;
+  }
+  th,td{
+    // Using before is a bit of a hack
+    // As a result of using position relative on the cells there is a border overlap when background color is applied.
+    &.Center-.Icn{
+      .icn,&.active .icn{
+        background-color: transparent;
+        background: none;
+      }
+    }
+    &:before{
+      border-left:1px solid $c_0;
+    }
+  }
+  tr{
+    border-bottom:1px solid $c_0;
+    background-color:$c_09;
+    transition: background 100ms;
+      .icn{
+        transition: background 0ms;
+      @include grad_h($c_09);
+      }
+  }
+}
 
 @import '_media.scss';

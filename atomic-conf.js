@@ -16,15 +16,25 @@ module.exports = [
 
 	// Width
 	{matcher:'wd0',noParams:true,styles:{'width':'0 !important'}},
+	{matcher:'wd5p',noParams:true,styles:{'width':'5% !important'}},
 	{matcher:'wd10p',noParams:true,styles:{'width':'10% !important'}},
+	{matcher:'wd15p',noParams:true,styles:{'width':'15% !important'}},
 	{matcher:'wd20p',noParams:true,styles:{'width':'20% !important'}},
+	{matcher:'wd25p',noParams:true,styles:{'width':'25% !important'}},
 	{matcher:'wd30p',noParams:true,styles:{'width':'30% !important'}},
+	{matcher:'wd35p',noParams:true,styles:{'width':'35% !important'}},
 	{matcher:'wd40p',noParams:true,styles:{'width':'40% !important'}},
+	{matcher:'wd45p',noParams:true,styles:{'width':'45% !important'}},
 	{matcher:'wd50p',noParams:true,styles:{'width':'50% !important'}},
+	{matcher:'wd55p',noParams:true,styles:{'width':'55% !important'}},
 	{matcher:'wd60p',noParams:true,styles:{'width':'60% !important'}},
+	{matcher:'wd65p',noParams:true,styles:{'width':'65% !important'}},
 	{matcher:'wd70p',noParams:true,styles:{'width':'70% !important'}},
+	{matcher:'wd75p',noParams:true,styles:{'width':'75% !important'}},
 	{matcher:'wd80p',noParams:true,styles:{'width':'80% !important'}},
+	{matcher:'wd85p',noParams:true,styles:{'width':'85% !important'}},
 	{matcher:'wd90p',noParams:true,styles:{'width':'90% !important'}},
+	{matcher:'wd95p',noParams:true,styles:{'width':'95% !important'}},
 	{matcher:'wd100p',noParams:true,styles:{'width':'100% !important'}},
 
 	// Height

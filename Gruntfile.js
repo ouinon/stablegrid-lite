@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     project_dirs: {
       // configurable paths
       app: 'app',
-      dist: 'dist'
+      dist: 'gh_pages'
     },
 
     clean: {
@@ -18,8 +18,8 @@ module.exports = function(grunt) {
           src: [
             '.tmp/{,*/}*',
             'logs/apache/{,*/}*',
-            'dist/{,*/}*',
-            '!dist/.git{,*/}*'
+            '<%= project_dirs.dist %>/{,*/}*',
+            '!<%= project_dirs.dist %>/.git{,*/}*'
           ]
         }]
       },
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
     compass: {
       options: {
         sassDir: '<%= project_dirs.app %>/styles',
-        cssDir: '<%= project_dirs.app %>/styles',
+        cssDir: '.tmp/styles',
         // generatedImagesDir: '.tmp/images/generated',
         // imagesDir: './images',
         // javascriptsDir: './scripts',
@@ -94,18 +94,18 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           dot: true,
-          cwd: '',
-          dest: 'dist',
+          cwd: '<%= project_dirs.app %>',
+          dest: '<%= project_dirs.dist %>',
           src: [
             '*.{ico,png,txt}',
-            '.htaccess',
+            //'.htaccess',
             '*.html',
             'views/{,*/}*.html',
-            'node/{,**/}*.*',
-            'templates/{,**/}*.*',
-            'images/{,*/}*.{webp}',
-            'styles/fonts/{,*/}*.*',
-            'fonts/{,*/}*.*',
+            // 'templates/{,**/}*.*',
+            // 'images/{,*/}*.{webp}',
+            // 'fonts/{,*/}*.*',
+            // 'node/{,**/}*.*',
+            // 'styles/fonts/{,*/}*.*',
           ]
         }]
       }
@@ -121,19 +121,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/styles/main.css': ['.tmp/styles/{,*/}*.css']
-        }
-      }
-    },
-    processhtml: {
-      options: {
-        data: {
-          message: 'Hello world!'
-        }
-      },
-      dist: {
-        files: {
-          'dist/index.html': ['index.html']
+          '<%= project_dirs.dist %>/styles/main.css': ['.tmp/styles/{,*/}*.css']
         }
       }
     },
@@ -170,16 +158,16 @@ module.exports = function(grunt) {
           },
           files: [
               {
-                  src: ['index.html','templates/home.html'],
-                  dest: 'styles/_properties.scss'
+                  src: ['<%= project_dirs.app %>/index.html','<%= project_dirs.app %>/views/main.html'],
+                  dest: '<%= project_dirs.app %>/styles/atomic-properties.scss'
               }
           ]
       }
     },
     useminPrepare: {
-      html: 'app/index.html',
+      html: '<%= project_dirs.app %>/index.html',
       options: {
-        dest: 'dist',
+        dest: '<%= project_dirs.dist %>',
         flow: {
           html: {
             steps: {
@@ -203,7 +191,7 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: ['index.html','templates/home.html'],
+        files: ['<%= project_dirs.app %>/**'],
         tasks: ['atomizer'],
         options: {
           spawn: false,
@@ -216,7 +204,6 @@ module.exports = function(grunt) {
   // https://github.com/stephenplusplus/grunt-wiredep
   grunt.registerTask('default',['wiredep']);
 
-
   grunt.registerTask('build', [
     'clean:dist',
     'compass',
@@ -225,11 +212,11 @@ module.exports = function(grunt) {
     // 'concat',
     'uglify',
     'cssmin',
+    'autoprefixer:dist',
+    'copy:dist',
     'usemin',
     // // 'concurrent:dist',
-    'autoprefixer:dist',
     'ngAnnotate',
-    // 'copy:dist',
     // // 'cdnify',
     // 'processhtml',
     // 'clean:removetmp',

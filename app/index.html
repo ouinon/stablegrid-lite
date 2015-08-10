@@ -11,8 +11,9 @@
     <!-- endbower -->
     <!-- endbuild -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
+    <!-- build:css(.tmp) styles/stablegrid.css -->
+    <link rel="stylesheet" href="styles/stablegrid/stablegrid.css">
+    <link rel="stylesheet" href="styles/atomic-properties.css">
     <!-- endbuild -->
 
     <style type="text/css">
@@ -43,7 +44,7 @@
     </style>
 
   </head>
-  <body ng-app="affixalllApp" affixall="100">
+  <body ng-app="affixalllApp" affixall="100" ng-strict-di>
 
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -75,18 +76,20 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
+        <!-- {.tmp,app} are where the files might be found -->
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/directives/affixall.js"></script>
+        <!-- <script src="scripts/directives/affixall.js"></script> -->
         <script src="scripts/directives/oinput.js"></script>
         <!-- endbuild -->
 
+        <!-- build:remove -->
     <script type="text/javascript" src="http://localhost:48626/takana.js"></script>
     <script type="text/javascript">
       takanaClient.run({host: 'localhost:48626'});
     </script> 
+        <!-- endbuild -->
 </body>
 </html>

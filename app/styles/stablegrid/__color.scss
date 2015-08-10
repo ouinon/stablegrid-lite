@@ -1,0 +1,50 @@
+// the third argument in mix is the amount of the first colour to be included
+
+$c_01:mix($c_0,$c_1,90%);
+$c_01-5:mix($c_0,$c_1,95%);
+$c_02:mix($c_0,$c_1,80%);
+$c_02-5:mix($c_0,$c_1,85%);
+$c_03:mix($c_0,$c_1,70%);
+$c_03-5:mix($c_0,$c_1,75%);
+$c_04:mix($c_0,$c_1,60%);
+$c_04-5:mix($c_0,$c_1,65%);
+$c_05:mix($c_0,$c_1,50%);
+$c_05-5:mix($c_0,$c_1,55%);
+$c_06:mix($c_0,$c_1,40%);
+$c_06-5:mix($c_0,$c_1,45%);
+$c_07:mix($c_0,$c_1,30%);
+$c_07-5:mix($c_0,$c_1,35%);
+$c_08:mix($c_0,$c_1,20%);
+$c_08-5:mix($c_0,$c_1,25%);
+$c_09:mix($c_0,$c_1,10%);
+$c_09-5:mix($c_0,$c_1,5%);
+
+$c_A01:mix($c_A,$c_0,90%); $c_A11:mix($c_A,$c_1,90%);
+$c_A02:mix($c_A,$c_0,80%); $c_A12:mix($c_A,$c_1,80%);
+$c_A03:mix($c_A,$c_0,70%); $c_A13:mix($c_A,$c_1,70%);
+$c_A04:mix($c_A,$c_0,60%); $c_A14:mix($c_A,$c_1,60%);
+$c_A05:mix($c_A,$c_0,50%); $c_A15:mix($c_A,$c_1,50%);
+$c_A06:mix($c_A,$c_0,40%); $c_A16:mix($c_A,$c_1,40%);
+$c_A07:mix($c_A,$c_0,30%); $c_A17:mix($c_A,$c_1,30%);
+$c_A08:mix($c_A,$c_0,20%); $c_A18:mix($c_A,$c_1,20%);
+$c_A09:mix($c_A,$c_0,10%); $c_A19:mix($c_A,$c_1,10%);
+
+$c_B01:mix($c_B,$c_0,90%); $c_B11:mix($c_B,$c_1,90%);
+$c_B02:mix($c_B,$c_0,80%); $c_B12:mix($c_B,$c_1,80%);
+$c_B03:mix($c_B,$c_0,70%); $c_B13:mix($c_B,$c_1,70%);
+$c_B04:mix($c_B,$c_0,60%); $c_B14:mix($c_B,$c_1,60%);
+$c_B05:mix($c_B,$c_0,50%); $c_B15:mix($c_B,$c_1,50%);
+$c_B06:mix($c_B,$c_0,40%); $c_B16:mix($c_B,$c_1,40%);
+$c_B07:mix($c_B,$c_0,30%); $c_B17:mix($c_B,$c_1,30%);
+$c_B08:mix($c_B,$c_0,20%); $c_B18:mix($c_B,$c_1,20%);
+$c_B09:mix($c_B,$c_0,10%); $c_B19:mix($c_B,$c_1,10%);
+
+$c_C01:mix($c_C,$c_0,90%); $c_C11:mix($c_C,$c_1,90%);
+$c_C02:mix($c_C,$c_0,80%); $c_C12:mix($c_C,$c_1,80%);
+$c_C03:mix($c_C,$c_0,70%); $c_C13:mix($c_C,$c_1,70%);
+$c_C04:mix($c_C,$c_0,60%); $c_C14:mix($c_C,$c_1,60%);
+$c_C05:mix($c_C,$c_0,50%); $c_C15:mix($c_C,$c_1,50%);
+$c_C06:mix($c_C,$c_0,40%); $c_C16:mix($c_C,$c_1,40%);
+$c_C07:mix($c_C,$c_0,30%); $c_C17:mix($c_C,$c_1,30%);
+$c_C08:mix($c_C,$c_0,20%); $c_C18:mix($c_C,$c_1,20%);
+$c_C09:mix($c_C,$c_0,10%); $c_C19:mix($c_C,$c_1,10%);
