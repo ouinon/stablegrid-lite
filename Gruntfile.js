@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     project_dirs: {
       // configurable paths
       app: 'app',
-      dist: 'gh_pages'
+      dist: 'gh-pages'
     },
 
     clean: {
@@ -97,7 +97,7 @@ module.exports = function(grunt) {
           cwd: '<%= project_dirs.app %>',
           dest: '<%= project_dirs.dist %>',
           src: [
-            '*.{ico,png,txt}',
+            // '*.{ico,png,txt}',
             //'.htaccess',
             '*.html',
             'views/{,*/}*.html',
