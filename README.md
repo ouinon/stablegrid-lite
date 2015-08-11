@@ -4,4 +4,4 @@ A basic grid system and Bootstrap alternative for use with AngularJS and Angular
 
 A Demo of which can be found here:
 
-http://blog.ouinon.co/stablegrid-lite/#/
+http://stablegrid-lite.ouinon.co/#/
