@@ -7,17 +7,60 @@
  * # wrapInput
  */
 angular.module('affixalllApp')
-  .directive('oInput', function () {
+  .directive('oInput', ['$timeout',function ($timeout) {
     return {
-      template:
-		'<div class="o-input" ng-class="{\'focus\':focus}">'+
-			'<input ng-model="inpModel" ng-focus="focus=1" ng-blur="focus=0" type="text" placeholder="{{placeHolder}}">'+
-		'</div>',
-      replace:true,
-      restrict: 'E',
+      // compile:function(elem,attr){
+      //   console.log("o-input attr",elem,attr);
+      //   // elem.removeAttr('o-input');
+      // },
       scope:{
-      	inpModel:'=ngModel',
-      	placeHolder:'@placeholder'
-      }
+        ngModel:'='
+      },
+      require: 'ngModel',
+      controller: ['$scope', '$attrs', '$timeout', function($scope, $attrs, $timeout) {
+
+        var that = this;
+        this.$options = {};
+        this.$options.allowInvalid = true;
+
+      }],
+      compile: function(tElem, tAttrs){
+        return {
+          pre: function(scope, elem){
+            // elem.attr('ng-model-options',"{allowInvalid:true}");
+            elem.wrap("<div class='o-input'></div>");
+
+          },
+          post: function(scope, $elem, attrs, ctrl){
+
+            var oElem = $elem.parent();
+
+            var compare = {};
+
+            var checkValid = function() {
+              console.log('validator',ctrl);
+              if(ctrl.$valid){
+                compare.valid = ctrl.$valid;
+              };
+            };
+
+            $elem.bind('keypress', function(a,b,c) {
+              console.log($elem.attr('class'));
+            });
+
+            $elem.bind('focus', function(event) {
+              oElem.addClass('focus');
+            }).bind('blur', function(event) {
+              oElem.removeClass('focus');
+            });
+
+            ctrl.$viewChangeListeners.push(checkValid);
+
+            $timeout(function(){checkValid();});
+            
+          }
+        }
+      },
+      restrict:'A'
     };
-  });
+  }]);
