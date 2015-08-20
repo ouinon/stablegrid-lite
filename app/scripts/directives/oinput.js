@@ -13,17 +13,7 @@ angular.module('affixalllApp')
       //   console.log("o-input attr",elem,attr);
       //   // elem.removeAttr('o-input');
       // },
-      scope:{
-        ngModel:'='
-      },
       require: 'ngModel',
-      controller: ['$scope', '$attrs', '$timeout', function($scope, $attrs, $timeout) {
-
-        var that = this;
-        this.$options = {};
-        this.$options.allowInvalid = true;
-
-      }],
       compile: function(tElem, tAttrs){
         return {
           pre: function(scope, elem){
@@ -34,19 +24,20 @@ angular.module('affixalllApp')
           post: function(scope, $elem, attrs, ctrl){
 
             var oElem = $elem.parent();
-
+            var behaviour = ['removeClass','addClass'];
             var compare = {};
 
             var checkValid = function() {
-              console.log('validator',ctrl);
-              if(ctrl.$valid){
-                compare.valid = ctrl.$valid;
-              };
-            };
 
-            $elem.bind('keypress', function(a,b,c) {
-              console.log($elem.attr('class'));
-            });
+              $timeout(function(){
+                if(ctrl.$valid !== compare.valid){
+                  console.log('fired');
+                  oElem[behaviour[Number(ctrl.$valid)]]('valid');
+                  compare.valid = ctrl.$valid;
+                };
+              })
+
+            };
 
             $elem.bind('focus', function(event) {
               oElem.addClass('focus');
@@ -56,7 +47,7 @@ angular.module('affixalllApp')
 
             ctrl.$viewChangeListeners.push(checkValid);
 
-            $timeout(function(){checkValid();});
+            checkValid();
             
           }
         }
