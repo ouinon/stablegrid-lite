@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc directive
  * @name affixalllApp.directive:wrapInput
@@ -9,30 +8,50 @@
 angular.module('affixalllApp')
   .directive('oInput', ['$timeout',function ($timeout) {
     return {
-      // compile:function(elem,attr){
-      //   console.log("o-input attr",elem,attr);
-      //   // elem.removeAttr('o-input');
-      // },
+      restrict:'A',
       require: 'ngModel',
+      scope:{
+        ngModel:'='
+      },
       compile: function(tElem, tAttrs){
         return {
-          pre: function(scope, elem){
-            // elem.attr('ng-model-options',"{allowInvalid:true}");
-            elem.wrap("<div class='o-input'></div>");
+          pre: function(scope,elem,attr){
+
+            var otherClasses = ['Icn'];
+
+            var elemParent = elem.wrap("<div class='o-input'></div>")
+              .parent()
+                .addClass('Pristine');
+            
+            if(attr.icons !== "false"){
+              
+              if(attr.disabled){
+                otherClasses.push('Disabled');
+              }
+
+              elemParent.addClass(otherClasses.join(' '))
+                .append("<div class='icn Blank'><i class='fa'></i></div>");
+
+            };
 
           },
           post: function(scope, $elem, attrs, ctrl){
 
             var oElem = $elem.parent();
-            var behaviour = ['removeClass','addClass'];
+            var method = ['removeClass','addClass'];
             var compare = {};
 
-            var checkValid = function() {
+            var checkValid = function(init) {
+              // $timeout is a necessary hack to ensure that the element is updated after the listener has fired.
+              if(!init){
+                oElem[method[0]]('Pristine');
+              }
 
               $timeout(function(){
                 if(ctrl.$valid !== compare.valid){
-                  console.log('fired');
-                  oElem[behaviour[Number(ctrl.$valid)]]('valid');
+                  // Toggle the classes
+                  oElem[method[Number(ctrl.$valid)]]('Valid')
+                    [method[Number(!ctrl.$valid)]]('Invalid');
                   compare.valid = ctrl.$valid;
                 };
               })
@@ -40,18 +59,17 @@ angular.module('affixalllApp')
             };
 
             $elem.bind('focus', function(event) {
-              oElem.addClass('focus');
+              oElem.addClass('Focus');
             }).bind('blur', function(event) {
-              oElem.removeClass('focus');
+              oElem.removeClass('Focus');
             });
 
             ctrl.$viewChangeListeners.push(checkValid);
 
-            checkValid();
+            checkValid(true);
             
           }
         }
-      },
-      restrict:'A'
+      }      
     };
   }]);

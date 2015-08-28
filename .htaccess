@@ -2,10 +2,9 @@
     
     RewriteEngine on
 
-    RewriteRule ^node/(.+) http://%{HTTP_HOST}:8090/$1 [P,L]
+    # RewriteRule ^node/(.+) http://%{HTTP_HOST}:8090/$1 [P,L]
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule . /app/index.html [L]
-    # Redirect a whole subdirectory:
     
 </IfModule>

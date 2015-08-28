@@ -202,7 +202,7 @@ module.exports = function(grunt) {
   
   // Source
   // https://github.com/stephenplusplus/grunt-wiredep
-  grunt.registerTask('default',['wiredep']);
+  grunt.registerTask('default',['wiredep','watch']);
 
   grunt.registerTask('build', [
     'clean:dist',

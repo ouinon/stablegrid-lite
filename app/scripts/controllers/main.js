@@ -11,5 +11,5 @@ angular.module('affixalllApp')
   .controller('MainCtrl',['$scope', function ($scope) {
 
     $scope.basicAr = [];
-
+    $scope.input01 = 'ehllo';
   }]);

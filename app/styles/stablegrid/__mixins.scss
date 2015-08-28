@@ -12,13 +12,13 @@
 		transition: background 0ms;
 		background-color: $bg-hov;
 		> .icn{
-			// transition: background 0ms;
-			// @include grad_h($bg-hov);
+			transition: background 0ms 200ms;
+			background: rgba(255,0,0,0.1);
 		}
 	}
 	> .icn{
-		// transition: background 200ms;
-		// @include grad_h($background);
+		transition: background 200ms 0ms;
+		@include grad_h($background);
 		& > span{
 		  color: $icontext;
 		}

@@ -7,3 +7,5 @@ The main difference to be kept in mind, regarding directories and tasks, is that
 
 #Alternate search path notes
 https://github.com/yeoman/grunt-usemin/issues/133
+
+#ANGULAR

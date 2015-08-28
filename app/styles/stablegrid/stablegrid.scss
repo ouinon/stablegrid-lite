@@ -330,10 +330,37 @@ p{
   position: relative;
   border-radius: 0.2rem;
   &.Icn{
+    $fa-check-square:"\f14a";
+    $fa-exclamation-triangle:"\f071";
+    $fa-lock:"\f023";
+    
+    &.Valid{
+      .icn.Blank .fa:before{
+        color: $c_A;
+        content:$fa-check-square;
+      }
+    }   
+    &.Pristine{
+      .icn.Blank .fa:before{
+        visibility: hidden;
+      }
+    }
+    &.Invalid{
+      .icn.Blank .fa:before{
+        color: $c_02;
+        content:$fa-exclamation-triangle;
+      }
+    }
+    &.Disabled{
+      .icn.Blank .fa:before{
+        color: $c_0;
+        content:$fa-lock;
+        visibility: visible;
+      }
+    }
     .icn{
       color: rgba(0,0,0,0);
       @include grad_h($c_1);
-      
       position: absolute;
       top: 0;
       right: 0;
@@ -361,8 +388,8 @@ p{
     background-color: $c_07;
     height: 2px;
   }
-  &.focus:hover:after,
-  &.focus:after{
+  &.Focus:hover:after,
+  &.Focus:after{
     height: 4px;
   }
   input{

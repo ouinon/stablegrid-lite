@@ -209,7 +209,15 @@
   <div class="o-tbl">
     <div class="tbl Merge">
       <div class="cll">
-        <div class="o-input" ng-class="{'focus':fcs1}"><input ng-focus="fcs1=1" ng-blur="fcs1=0" type="text" placeholder=".o-input > input"></div>
+        <input o-input placeholder="o-input.o-input > input" required ng-pattern="/^[0-9]{1,7}$/" ng-model-options="{allowInvalid:true}" ng-model="input01" name="firstinput"></input>
+      </div>
+    </div>
+  </div>
+
+  <div class="o-tbl">
+    <div class="tbl">
+      <div class="cll">
+        <input o-input  placeholder="o-input[icons='false'] .o-input > input" icons="false" required ng-pattern="/^[0-9]{1,7}$/" ng-model-options="{allowInvalid:true}" ng-model="input02" name="secondinput"></input>
       </div>
     </div>
   </div>
@@ -218,25 +226,7 @@
     <div class="tbl">
       <div class="cll">
         <div class="o-input Icn" ng-class="{'focus':fcs2}">
-          <input ng-focus="fcs2=1" ng-blur="fcs2=0" type="text" placeholder=".o-input.Icn > input">
-          <div class="icn clDrk">
-            <i class="fa fa-shield"></i>
-            <i class="fa fa-check"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="o-tbl">
-    <div class="tbl">
-      <div class="cll">
-        <div class="o-input Icn" ng-class="{'focus':fcs2}">
-          <input disabled ng-focus="fcs2=1" ng-blur="fcs2=0" type="text" placeholder=".o-input > input[disabled]">
-          <div class="icn clDrk op0-5">
-            <i class="fa fa-lock"></i>
-            <i class="fa fa-check"></i>
-          </div>
+          <input o-input disabled placeholder=".o-input > input[disabled]" required ng-pattern="/^[0-9]{1,7}$/" ng-model-options="{allowInvalid:true}" ng-model="input02" name="secondinput"></input>
         </div>
       </div>
     </div>
@@ -245,7 +235,7 @@
   <div class="o-tbl">
     <div class="tbl Auto Merge">
       <div class="wd100p cll">
-        <div class="o-input" ng-class="{'focus':fcs2}"><input ng-focus="fcs2=1" ng-blur="fcs2=0" type="text" placeholder=".o-input > input"></div>
+        <input o-input icons="false" placeholder="o-input.o-input > input" required ng-pattern="/^[0-9]{1,7}$/" ng-model-options="{allowInvalid:true}" ng-model="input03" name="secondinput"></input>        
       </div>
       <div class="cll">
         <button class="btn">
@@ -266,7 +256,7 @@
   <div class="o-tbl C_1_">
     <div class="tbl Auto Merge">
       <div class="cll wd100p">
-        <div class="o-input" ng-class="{'focus':fcs3}"><input ng-focus="fcs3=1" ng-blur="fcs3=0" type="text" placeholder=".C_1_"></div>
+        <input o-input icons="false" placeholder="o-input.o-input > input" required ng-pattern="/^[0-9]{1,7}$/" ng-model-options="{allowInvalid:true}" ng-model="input05" name="secondinput"></input>
       </div>
       <div class="cll">
         <button class="btn Icn">
@@ -283,10 +273,10 @@
   <div class="o-tbl">
     <div class="tbl Auto Merge">
       <div class="cll wd75p">
-        <div class="o-input" ng-class="{'focus':fcs4}"><input ng-focus="fcs4=1" ng-blur="fcs4=0" type="text" placeholder=".o-input > input"></div>
+        <input o-input icons="false" placeholder="o-input.o-input > input" required ng-pattern="/^[0-9]{1,7}$/" ng-model-options="{allowInvalid:true}" ng-model="input06" name="secondinput"></input>
       </div>
       <div class="cll wd25p">
-        <div class="o-input Drk2- c_Lgt" ng-class="{'focus':fcs5}"><input ng-focus="fcs5=1" ng-blur="fcs5=0" type="text" placeholder=".o-input > input"></div>
+        <input o-input icons="false" placeholder="o-input.o-input > input" required ng-pattern="/^[0-9]{1,7}$/" ng-model-options="{allowInvalid:true}" ng-model="input07" name="secondinput"></input>
       </div>
       <div class="cll">
         <button class="btn Icn">
